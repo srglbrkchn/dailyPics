@@ -4,27 +4,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width" , initial-scale=1.0>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+  <!-- Font Awesome 4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>Image Uploading</title>
 </head>
 
 <body>
-  <h1>Uploading Image on mongoDB</h1>
-  <hr>
+  <h1><i class="fa fa-sun-o" aria-hidden="true">aily</i> Pics <i class="fa fa-camera-retro" aria-hidden="true"></i>
+  </h1>
+
   <div class="">
-    <form class="" action="/" method="post" enctype="multipart/form-data">
-      <div class="">
-        <label for="name">Image Title</label>
-        <input type="text" id="name" placeholder="Name" name="name" value="" required>
-      </div>
+    <form class="submit-section" action="/" method="post" enctype="multipart/form-data">
+      <div class="text-content">
 
-      <div class="">
-        <label for="desc">Image Description</label>
-        <textarea name="desc" id="desc" rows="2" placeholder="Description" required></textarea>
-      </div>
+        <div class="title">
+          <label for="name">Image Title</label>
+          <input type="text" id="name" placeholder="Name" name="name" value="" required>
+        </div>
 
-      <div class="">
-        <label for="image">Upload Image</label>
-        <input type="file" id="image" name="image" value="" required>
+        <div class="description">
+          <label for="desc">Image Description</label>
+          <textarea name="desc" id="desc" rows="4" placeholder="Description" required></textarea>
+        </div>
+
+        <div class="upload">
+          <label for="image">Upload Image</label>
+          <input type="file" id="image" name="image" value="" required>
+        </div>
+
       </div>
 
       <div class="">
@@ -34,16 +46,14 @@
     </form>
   </div>
 
-  <hr>
-
   <h1>Uploaded Images</h1>
-  <div class="">
+  <div class="frame">
     <% items.forEach(function(image){ %>
-    <div class="">
-      <div class="">
-        <img width="300" height="250" src="data:image/<%=image.img.contentType%>;base64,<%=image.img.data.toString("base64")%>" alt="">
+    <div class="image-frame">
+      <div class="inner-frame">
+        <img src="data:image/<%=image.img.contentType%>;base64,<%=image.img.data.toString("base64")%>" alt="">
         <div class="">
-          <h5><%= image.name%></h5>
+          <h3><%= image.name%></h3>
           <p><%= image.desc %></p>
         </div>
       </div>
